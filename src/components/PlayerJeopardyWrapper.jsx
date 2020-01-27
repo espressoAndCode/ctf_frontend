@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
-import ScoreboardContext from "context/ScoreboardContext";
+import JeopardyContext from "context/JeopardyContext";
+import JeopardyChallenges from "./JeopardyChallenges";
 
 
 const PlayerJeopardyWrapperStyle = {
@@ -14,16 +15,17 @@ class PlayerJeopardyWrapper extends Component {
     return (
       <div style={PlayerJeopardyWrapperStyle}>
         <div>
-          <div className="container" >
-          <h1>Jeopardy</h1>
-
-           </div>
+          <div className="container">
+            <h1>Jeopardy</h1>
+            {this.props.children}
+            <JeopardyChallenges />
+          </div>
         </div>
       </div>
     );
   }
 }
 
-PlayerJeopardyWrapper.contextType = ScoreboardContext;
+PlayerJeopardyWrapper.contextType = JeopardyContext;
 
 export default PlayerJeopardyWrapper;
