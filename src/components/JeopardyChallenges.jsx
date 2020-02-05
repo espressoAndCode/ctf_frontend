@@ -1,20 +1,16 @@
 import React, { Component } from "react";
-import JeopardyContext from "context/JeopardyContext";
+import JeopardyChallengeBar from "./JeopardyChallengeBar";
 import axios from "axios";
 
 
 class JeopardyChallenges extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-
-    };
+    this.state = {};
   }
 
   componentDidMount(){
-    const data = this.getChallenges();
-
+    this.getChallenges();
   }
 
    getChallenges() {
@@ -27,7 +23,45 @@ class JeopardyChallenges extends Component {
   }
 
   render(){
-    return "Test"
+    const globalChallenges = { ...this.state};
+    const localChallenges = [];
+    for (let item in globalChallenges) {
+
+        var tempItem = {
+          idx: item,
+          name: globalChallenges[item]["name"],
+          score: globalChallenges[item]["score"],
+          instructions: globalChallenges[item]["instructions"],
+          hint: globalChallenges[item]["hint"]
+        };
+        localChallenges.push(tempItem);
+
+    }
+
+    const items = Array.prototype.slice
+      .call(localChallenges)
+      .sort((a, b) => b.total - a.total)
+      .map(item => (
+        <JeopardyChallengeBar
+          key={item.name}
+          name={item.name}
+          instructions={item.instructions}
+          hint={item.hint}
+        />
+      ));
+
+    const scoreStyles = {
+      div: {
+        backgroundColor: "rgba(50,50,50,.8)",
+        color: "#fff"
+      }
+    };
+
+    return (
+      <div className="col-12" style={scoreStyles.div}>
+          {items}
+      </div>
+    );
   }
 
 
@@ -36,6 +70,7 @@ class JeopardyChallenges extends Component {
 
 
 
-JeopardyChallenges.contextType = JeopardyContext;
+// JeopardyChallenges.contextType = JeopardyContext;
 
 export default JeopardyChallenges;
+

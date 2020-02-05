@@ -16,11 +16,15 @@ export class JeopardyProvider extends React.Component {
     //   "JE": [80, ["JE356", 30],["JE666", 50]],
     // },
   };
+  componentDidMount(){
+    this.getChallenges();
 
+  }
   getChallenges() {
     axios.get("http://127.0.0.1:5000/jeopardy").then(res => {
       const data = res.data;
       this.setState(data);
+      console.log("context ", data);
     });
   }
 
