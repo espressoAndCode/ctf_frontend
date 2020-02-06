@@ -1,23 +1,39 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Accordion, Card, Form , Button, InputGroup } from "react-bootstrap";
+import { Accordion, Card, Form , Button, Col } from "react-bootstrap";
 import bgImg from "../images/grunge.jpg";
 
 
 class JeopardyChallengeBar extends Component {
-  constructor(props) {
-    super(props);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
 
-  // state = {
-  //   team: "",
-  //   answer: ""
-  // };
+  state = {
+    update:{
+      team: "",
+      answer: ""
+    }
+  };
+
+
+  handleSubmit = event => {
+      event.preventDefault();
+    console.log("Submitted");
+    // console.log(this.state);
+    console.log(this.state.update.team);
+    console.log(this.state.update.answer);
+
+    this.setState({ update: { team: "", answer: ""} });
+  };
+
+  handleChange = ({ currentTarget: input}) => {
+    const update = {...this.state.update};
+    update[input.name] = input.value;
+    this.setState({update});
+
+
+  };
 
   postAnswer() {
-    console.log("Team: ", document.getElementById("team"));
-    console.log("Answer: ", document.getElementById("answer"));
+
 
     //   axios.post('http://127.0.0.1:5000/jeopardy', {
     //   firstName: 'Fred',
@@ -29,7 +45,7 @@ class JeopardyChallengeBar extends Component {
     // .catch(function (error) {
     //   console.log(error);
     // });
-  }
+  };
 
   render() {
     const styles = {
@@ -79,49 +95,41 @@ class JeopardyChallengeBar extends Component {
                 </Card>
               </Accordion>
 
-              {/* <InputGroup size="lg">
-                <InputGroup.Prepend>
-                  <InputGroup.Text id="inputGroup-sizing-lg" ref="team">
-                    Enter your team tag here...
-                  </InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl
-                  aria-label="Large"
-                  aria-describedby="inputGroup-sizing-sm"
-                />
-              </InputGroup> */}
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Row>
+                  <Col>
+                    <Form.Group>
+                      <Form.Control
+                        onChange={this.handleChange}
+                        size="lg"
+                        type="text"
+                        as="input"
+                        name="team"
+                        value={this.state.update.team}
+                        placeholder="Enter your team tag here..."
+                        // value={this.state.team}
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group>
+                      <Form.Control
+                        onChange={this.handleChange}
+                        size="lg"
+                        type="text"
+                        as="input"
+                        name="answer"
+                        value={this.state.update.answer}
+                        placeholder="Enter your answer here..."
+                      />
+                    </Form.Group>
+                  </Col>
+                </Form.Row>
 
-              <input
-                type="text"
-                className="form-control"
-                ref={c => (this.title = c)}
-                name="title"
-              />
-
-              {/* <Form>
-                <Form.Group>
-                  <Form.Control
-                    size="lg"
-                    type="text"
-                    id="team"
-                    ref={this.team}
-                    placeholder="Enter your team tag here..."
-                    // value={this.state.team}
-                  />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Control
-                    size="lg"
-                    type="text"
-                    id="answer"
-                    placeholder="Enter your answer here..."
-                  />
-                </Form.Group> */}
-
-              <Button variant="danger" onClick={() => this.postAnswer()}>
-                Submit
-              </Button>
-              {/* </Form> */}
+                <Button variant="danger" type="submit">
+                  Submit
+                </Button>
+              </Form>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
