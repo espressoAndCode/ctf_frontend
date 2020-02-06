@@ -43,7 +43,8 @@ class JeopardyChallenges extends Component {
       .sort((a, b) => b.total - a.total)
       .map(item => (
         <JeopardyChallengeBar
-          key={item.name}
+          key={item.idx}
+          id={item.idx}
           name={item.name}
           instructions={item.instructions}
           hint={item.hint}

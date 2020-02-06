@@ -8,6 +8,7 @@ class JeopardyChallengeBar extends Component {
 
   state = {
     update:{
+      challengeId: "",
       team: "",
       answer: ""
     }
@@ -17,34 +18,38 @@ class JeopardyChallengeBar extends Component {
   handleSubmit = event => {
       event.preventDefault();
     console.log("Submitted");
-    // console.log(this.state);
+    console.log(this.state.update.challengeId);
     console.log(this.state.update.team);
     console.log(this.state.update.answer);
-
-    this.setState({ update: { team: "", answer: ""} });
+    this.postAnswer()
+    this.setState({ update: { challengeId: "", team: "", answer: "" } });
   };
 
   handleChange = ({ currentTarget: input}) => {
+    console.log("Input: ", input);
     const update = {...this.state.update};
     update[input.name] = input.value;
     this.setState({update});
-
-
+    if (input.name === "team"){
+      update["challengeId"] = input.id;
+      this.setState({ update });
+    }
   };
 
+
   postAnswer() {
-
-
-    //   axios.post('http://127.0.0.1:5000/jeopardy', {
-    //   firstName: 'Fred',
-    //   lastName: 'Flintstone'
-    // })
-    // .then(function (response) {
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    axios
+        .post("http://127.0.0.1:5000/jeopardy", {
+          "team": this.state.update.team,
+          "answer": this.state.update.answer,
+          "id": this.state.update.challengeId
+        })
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
   };
 
   render() {
@@ -98,7 +103,7 @@ class JeopardyChallengeBar extends Component {
               <Form onSubmit={this.handleSubmit}>
                 <Form.Row>
                   <Col>
-                    <Form.Group>
+                    <Form.Group controlId={this.props.id}>
                       <Form.Control
                         onChange={this.handleChange}
                         size="lg"
@@ -126,7 +131,7 @@ class JeopardyChallengeBar extends Component {
                   </Col>
                 </Form.Row>
 
-                <Button variant="danger" type="submit">
+                <Button variant="danger" type="submit" >
                   Submit
                 </Button>
               </Form>
