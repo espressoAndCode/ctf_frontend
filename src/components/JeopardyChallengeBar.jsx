@@ -2,55 +2,62 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Accordion, Card, Form , Button, Col } from "react-bootstrap";
 import bgImg from "../images/grunge.jpg";
+ import { ToastContainer, toast, Slide } from "react-toastify";
 
 
 class JeopardyChallengeBar extends Component {
-
   state = {
-    update:{
+    update: {
       challengeId: "",
       team: "",
       answer: ""
     }
   };
 
+  success = () => toast("That's correct !");
 
   handleSubmit = event => {
-      event.preventDefault();
-    console.log("Submitted");
-    console.log(this.state.update.challengeId);
-    console.log(this.state.update.team);
-    console.log(this.state.update.answer);
-    this.postAnswer()
+    event.preventDefault();
+    this.postAnswer();
     this.setState({ update: { challengeId: "", team: "", answer: "" } });
   };
 
-  handleChange = ({ currentTarget: input}) => {
-    console.log("Input: ", input);
-    const update = {...this.state.update};
+  handleChange = ({ currentTarget: input }) => {
+    const update = { ...this.state.update };
     update[input.name] = input.value;
-    this.setState({update});
-    if (input.name === "team"){
+    this.setState({ update });
+    if (input.name === "team") {
       update["challengeId"] = input.id;
       this.setState({ update });
     }
   };
 
-
   postAnswer() {
     axios
-        .post("http://127.0.0.1:5000/jeopardy", {
-          "team": this.state.update.team,
-          "answer": this.state.update.answer,
-          "id": this.state.update.challengeId
-        })
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-  };
+      .post("http://127.0.0.1:5000/jeopardy", {
+        team: this.state.update.team,
+        answer: this.state.update.answer,
+        id: this.state.update.challengeId
+      })
+      .then(function(response) {
+        console.log(response);
+        if (response.data === "Success"){
+          toast.success("That's correct!", {
+            position: toast.POSITION.BOTTOM_RIGHT});
+        } else if(response.data === "Duplicate"){
+          toast.warn("You already have that flag.", {
+            position: toast.POSITION.BOTTOM_RIGHT
+          });
+        } else{
+          toast.error("Sorry, try again.", {
+            position: toast.POSITION.BOTTOM_RIGHT
+          });
+        }
+      })
+      .catch(function(error) {
+
+      });
+  }
 
   render() {
     const styles = {
@@ -72,6 +79,9 @@ class JeopardyChallengeBar extends Component {
         backgroundSize: "cover",
         // backgroundColor: "#000",
         color: "#fff"
+      },
+      toast: {
+        color: "#000"
       }
     };
 
@@ -83,8 +93,8 @@ class JeopardyChallengeBar extends Component {
           </Accordion.Toggle>
           <Accordion.Collapse>
             <Card.Body>
+              <ToastContainer transition={Slide} style={styles.toast} />
               <p>{this.props.instructions}</p>
-
               <Accordion defaultActiveKey="0">
                 <Card style={styles.hint}>
                   <Card.Header>
@@ -130,7 +140,7 @@ class JeopardyChallengeBar extends Component {
                   </Col>
                 </Form.Row>
 
-                <Button variant="danger" type="submit" >
+                <Button variant="danger" type="submit">
                   Submit
                 </Button>
               </Form>

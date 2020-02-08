@@ -14,7 +14,6 @@ export class JeopardyProvider extends React.Component {
     axios.get("http://127.0.0.1:5000/jeopardy").then(res => {
       const data = res.data;
       this.setState(data);
-      console.log("context ", data);
     });
   }
 

@@ -17,7 +17,6 @@ export class ScoreboardProvider extends React.Component {
   getScores() {
     axios.get("http://127.0.0.1:5000/scores").then(res => {
       const data = res.data;
-      console.log(data);
       this.setState(data);
     });
   }

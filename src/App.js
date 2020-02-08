@@ -4,8 +4,12 @@ import "./App.css";
 import GameHeader from "./components/GameHeader";
 import GameBoardWrapper from "./components/GameBoardWrapper";
 // import GameAdminWrapper from "./components/GameAdminWrapper";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
+  toast.configure();
+
   return (
     <div className="App">
       <div className="container">

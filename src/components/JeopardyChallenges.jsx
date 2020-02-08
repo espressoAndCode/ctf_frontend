@@ -17,8 +17,6 @@ class JeopardyChallenges extends Component {
     axios.get("http://127.0.0.1:5000/jeopardy").then(res => {
       const data = res.data;
       this.setState(data);
-      console.log(data)
-
     });
   }
 
@@ -26,7 +24,6 @@ class JeopardyChallenges extends Component {
     const globalChallenges = { ...this.state};
     const localChallenges = [];
     for (let item in globalChallenges) {
-
         var tempItem = {
           idx: item,
           name: globalChallenges[item]["name"],
@@ -35,7 +32,6 @@ class JeopardyChallenges extends Component {
           hint: globalChallenges[item]["hint"]
         };
         localChallenges.push(tempItem);
-
     }
 
     const items = Array.prototype.slice

@@ -7,7 +7,6 @@ const gameControlAdminStyles = {
   color: "#fff"
 };
 
-
 class GameControlAdmin extends Component {
   selectedEndTime = React.createRef();
 
@@ -15,8 +14,6 @@ class GameControlAdmin extends Component {
     e.preventDefault();
     const endTime = this.selectedEndTime.current.value;
     this.setState({endTime: endTime})
-    console.log("Submitted", endTime);
-    //handle submit
   };
 
   state = {
@@ -24,7 +21,6 @@ class GameControlAdmin extends Component {
 
   };
   render() {
-    console.log(this.state.endTime);
     return (
       <div className="col-12" style={gameControlAdminStyles}>
         <h1>Game Control</h1>
@@ -39,19 +35,13 @@ class GameControlAdmin extends Component {
                     name="endTime"
                     required
                     className="form-control"/>
-
           </div>
           <button className="btn btn-primary">Set End Time</button>
-
         </form>
-
         <div>
           <p>The game will end at {this.state.endTime}</p>
         </div>
-
         </div>
-
-
       </div>
     );
   }
