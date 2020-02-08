@@ -16,7 +16,7 @@ const MyBadge = (props) => {
 
   var disp =
     props.name.substring(0, 2) === "KO"
-      ? "King of "+props.name + " for " + props.point + " cycles"
+      ? "King of "+props.name + " for " + Math.floor(props.point/4) + " minutes"
       : props.name + " for " + props.point + " points";
   return (
   <div className="pill-container">

@@ -10,12 +10,7 @@ class GameHeader extends Component {
   }
 
   render() {
-
-
-    const headerStyles = {
-
-
-    };
+    const headerStyles = {};
     const imgStyles = {
       width: "100%"
     };
@@ -24,7 +19,6 @@ class GameHeader extends Component {
       <div className="col-12 " style={headerStyles}>
         <img src={bgImg} alt="" style={imgStyles} />
       </div>
-
     );
   }
 }

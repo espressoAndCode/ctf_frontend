@@ -64,14 +64,7 @@ class JeopardyChallenges extends Component {
       </div>
     );
   }
-
-
-
 }
-
-
-
-// JeopardyChallenges.contextType = JeopardyContext;
 
 export default JeopardyChallenges;
 

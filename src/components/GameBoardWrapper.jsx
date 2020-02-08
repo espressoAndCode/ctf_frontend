@@ -13,7 +13,7 @@ const gameBoardWrapperStyle = {
 
 class GameBoardWrapper extends Component {
   state = {
-    pollInterval: 5000,
+    // pollInterval: 15000,
     endTime: "09:00:00 PM",
     scoreboard: {}
   }
@@ -22,7 +22,6 @@ class GameBoardWrapper extends Component {
   targets = this.context.targets;
 
   updateScore() {
-    // const oldScores = {...this.state.scoreboard};
     const newScores = this.context.scoreboard;
     this.setState({ scoreboard: newScores })
   }

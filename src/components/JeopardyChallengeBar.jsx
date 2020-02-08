@@ -112,7 +112,6 @@ class JeopardyChallengeBar extends Component {
                         name="team"
                         value={this.state.update.team}
                         placeholder="Enter your team tag here..."
-                        // value={this.state.team}
                       />
                     </Form.Group>
                   </Col>
