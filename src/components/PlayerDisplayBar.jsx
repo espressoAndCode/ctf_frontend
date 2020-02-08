@@ -21,11 +21,15 @@ class PlayerDisplayBar extends Component {
 
     return (
       <Zoom>
-      <tr key={this.props.playerId} className="row" style={styles}>
-        <td className="col-2">{this.props.total}</td>
-        <td className="col-3">{this.props.playerName}</td>
-        <td className="col-7" >{badges}</td>
-      </tr>
+        <tr key={this.props.playerId} className="row" style={styles}>
+          <td className="col-2">{this.props.total}</td>
+          <td className="col-3">
+            <div class="row text-wrap text-left">{this.props.playerName}</div>
+          </td>
+          <td className="col-7 align-self-start">
+            <div class="row">{badges}</div>
+          </td>
+        </tr>
       </Zoom>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PlayerDisplayBar from "./PlayerDisplayBar";
 import ScoreboardContext from "context/ScoreboardContext";
+import Table from "react-bootstrap/Table";
 
 class KothScores extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class KothScores extends Component {
     return (
       <div className="col-6" style={scoreStyles.div}>
         <h2>King of the Hill</h2>
-        <table
+        <Table
           className="table table-borderless"
           style={scoreStyles.tabledarkover}
         >
@@ -68,7 +69,7 @@ class KothScores extends Component {
             </tr>
           </thead>
           <tbody>{items}</tbody>
-        </table>
+        </Table>
       </div>
     );
   }
