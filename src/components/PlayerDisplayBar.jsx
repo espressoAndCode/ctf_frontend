@@ -24,10 +24,10 @@ class PlayerDisplayBar extends Component {
         <tr key={this.props.playerId} className="row" style={styles}>
           <td className="col-2">{this.props.total}</td>
           <td className="col-3">
-            <div class="row text-wrap text-left">{this.props.playerName}</div>
+            <div className="row text-wrap text-left">{this.props.playerName}</div>
           </td>
           <td className="col-7 align-self-start">
-            <div class="row">{badges}</div>
+            <div className="row">{badges}</div>
           </td>
         </tr>
       </Zoom>

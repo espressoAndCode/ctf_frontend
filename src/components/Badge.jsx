@@ -14,7 +14,10 @@ const MyBadge = (props) => {
     color = 'warning';
   }
 
-  var disp = (props.name.substring(0,2) === "KO") ? props.name +" x "+props.point : props.point;
+  var disp =
+    props.name.substring(0, 2) === "KO"
+      ? "King of "+props.name + " for " + props.point + " cycles"
+      : props.name + " for " + props.point + " points";
   return (
   <div className="pill-container">
       <Bounce top >
