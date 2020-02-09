@@ -50,13 +50,15 @@ class JeopardyChallenges extends Component {
     const scoreStyles = {
       div: {
         backgroundColor: "rgba(50,50,50,.8)",
-        color: "#fff"
+        color: "#fff",
+        padding: "0px"
       }
     };
 
     return (
       <div className="col-12" style={scoreStyles.div}>
-          {items}
+        <h1>Jeopardy</h1>
+        {items}
       </div>
     );
   }

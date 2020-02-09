@@ -58,7 +58,7 @@ class GameBoardWrapper extends Component {
             </div>
           </div>
 
-          <div className="container">
+          <div className="container nopad">
             <Nav variant="pills" defaultActiveKey="/player">
               <Nav.Item>
                 <Nav.Link eventKey="player" href="/player" style={styles.tab}>

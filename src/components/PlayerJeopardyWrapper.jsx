@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import JeopardyContext from "context/JeopardyContext";
 import JeopardyChallenges from "./JeopardyChallenges";
 
-
 const PlayerJeopardyWrapperStyle = {
   color: '#ffffff'
 };
@@ -15,8 +14,7 @@ class PlayerJeopardyWrapper extends Component {
     return (
       <div style={PlayerJeopardyWrapperStyle}>
         <div>
-          <div className="container">
-            <h1>Jeopardy</h1>
+          <div className="container nopad">
             {this.props.children}
             <JeopardyChallenges />
           </div>

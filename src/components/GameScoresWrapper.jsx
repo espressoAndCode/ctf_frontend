@@ -11,7 +11,7 @@ class GameScoresWrapper extends Component {
     return (
       <div style={gameScoresWrapperStyle}>
         <div>
-          <div className="container">
+          <div className="container nopad">
             <div className="row">
               {this.props.children}
               <KothScores />
