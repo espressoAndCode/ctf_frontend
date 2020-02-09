@@ -6,6 +6,7 @@ import GameScoresWrapper from "./GameScoresWrapper";
 import ScoreboardContext from "context/ScoreboardContext";
 import Nav from "react-bootstrap/Nav";
 import { Route } from "react-router-dom";
+import bgImg from "../images/grunge.jpg";
 
 const gameBoardWrapperStyle = {
 
@@ -37,10 +38,17 @@ class GameBoardWrapper extends Component {
 
   componentDidMount() {
     this.playGame();
-
   }
 
   render() {
+    const styles = {
+      tab: {
+        backgroundImage: `url(${bgImg})`,
+        backgroundSize: "cover",
+        margin: "0px 5px 0px"
+      }
+    };
+
     return (
       <div style={gameBoardWrapperStyle}>
         <div>
@@ -51,19 +59,23 @@ class GameBoardWrapper extends Component {
           </div>
 
           <div className="container">
-            <Nav variant="tabs" defaultActiveKey="/player">
+            <Nav variant="pills" defaultActiveKey="/player">
               <Nav.Item>
-                <Nav.Link eventKey="player" href="/player">
+                <Nav.Link eventKey="player" href="/player" style={styles.tab}>
                   Player Docs
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="jeopardy" href="/jeopardy">
+                <Nav.Link
+                  eventKey="jeopardy"
+                  href="/jeopardy"
+                  style={styles.tab}
+                >
                   Jeopardy
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="scores" href="/scores">
+                <Nav.Link eventKey="scores" href="/scores" style={styles.tab}>
                   Scoreboard
                 </Nav.Link>
               </Nav.Item>

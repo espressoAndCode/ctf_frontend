@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Accordion, Card, Form , Button, Col } from "react-bootstrap";
 import bgImg from "../images/grunge.jpg";
- import { ToastContainer, toast, Slide } from "react-toastify";
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 
 class JeopardyChallengeBar extends Component {
@@ -55,7 +55,7 @@ class JeopardyChallengeBar extends Component {
         }
       })
       .catch(function(error) {
-
+        //do nothing
       });
   }
 
@@ -64,11 +64,9 @@ class JeopardyChallengeBar extends Component {
       main: {
         backgroundImage: `url(${bgImg})`,
         backgroundSize: "cover",
-        // backgroundColor: "#000",
         color: "#fff",
         borderRadius: "20px",
         margin: "10px",
-        // whiteSpace: "nowrap",
         fontSize: "1.5em"
       },
       spacer: {
@@ -77,7 +75,6 @@ class JeopardyChallengeBar extends Component {
       hint: {
         backgroundImage: `url(${bgImg})`,
         backgroundSize: "cover",
-        // backgroundColor: "#000",
         color: "#fff"
       },
       toast: {

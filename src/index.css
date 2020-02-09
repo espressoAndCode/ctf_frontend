@@ -18,3 +18,11 @@ code {
 .pill-container {
   display: inline-block;
 }
+
+a {
+  color: #ccc;
+}
+
+a:hover {
+  color:  #fff;
+}
