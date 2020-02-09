@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PlayerDocsBody from "./PlayerDocsBody"
 
 
 const playerDocsWrapperStyle = {
@@ -14,8 +15,7 @@ class PlayerDocsWrapper extends Component {
         <div>
           <div className="container">
             <div className="row">
-              <h1>How to play the Game</h1>
-
+              <PlayerDocsBody/>
             </div>
           </div>
         </div>
