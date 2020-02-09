@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import JeopardyChallengeBar from "./JeopardyChallengeBar";
 import axios from "axios";
 
-
 class JeopardyChallenges extends Component {
   constructor(props) {
     super(props);

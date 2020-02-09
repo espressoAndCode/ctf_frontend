@@ -4,9 +4,7 @@ import bgImg from '../images/ctf_header_img02.png'
 class GameHeader extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
+    this.state = {}
   }
 
   render() {

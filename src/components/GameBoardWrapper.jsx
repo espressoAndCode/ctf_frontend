@@ -14,7 +14,6 @@ const gameBoardWrapperStyle = {
 
 class GameBoardWrapper extends Component {
   state = {
-    // pollInterval: 15000,
     endTime: "09:00:00 PM",
     scoreboard: {}
   }

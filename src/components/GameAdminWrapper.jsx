@@ -6,7 +6,6 @@ const gameAdminWrapperStyle = {};
 
 class GameAdminWrapper extends Component {
   state = {
-    endTime: "06:00:00 PM"
   };
   render() {
     return (

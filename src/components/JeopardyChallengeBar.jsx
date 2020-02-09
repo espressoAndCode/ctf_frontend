@@ -14,8 +14,6 @@ class JeopardyChallengeBar extends Component {
     }
   };
 
-  success = () => toast("That's correct !");
-
   handleSubmit = event => {
     event.preventDefault();
     this.postAnswer();

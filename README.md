@@ -21,6 +21,13 @@ The server will start and automatically open the default web browser on your mac
 
 This app is currently configured to route get and post requests to the companion server at `http://127.0.0.1:5000`. Code for the server is located at [DefCON864 CTF Server](https://github.com/espressoAndCode/ctf_server.git)
 
+If you need to modify this path, the files containing server routing include:
+1. `components/JeopardyChallenges.jsx`
+1. `components/JeopardyChallengeBar.jsx`
+1. `context/JeopardyContext.jsx`
+1. `context/ScoreboardContext.jsx`
+
+
 
 
 ## Original Documentation from the Base Project:
