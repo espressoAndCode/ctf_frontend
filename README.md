@@ -1,3 +1,30 @@
+# DefCON864 CTF Frontend
+
+The player interface and scoreboard for DefCON864's Capture the Flag project.
+
+## Installation
+
+```
+git clone https://github.com/espressoAndCode/ctf_frontend.git
+
+cd ctf_frontend
+
+npm install
+
+```
+To run:
+```
+npm start
+```
+The server will start and automatically open the default web browser on your machine to display the application. If not, open manually at `http://localhost:3000`.
+
+
+This app is currently configured to route get and post requests to the companion server at `http://127.0.0.1:5000`. Code for the server is located at [DefCON864 CTF Server](https://github.com/espressoAndCode/ctf_server.git)
+
+
+
+## Original Documentation from the Base Project:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,7 +93,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-
-
-stupid-pan.surge.sh
