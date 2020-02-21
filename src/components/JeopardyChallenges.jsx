@@ -13,7 +13,7 @@ class JeopardyChallenges extends Component {
   }
 
    getChallenges() {
-    axios.get("http://127.0.0.1:5000/jeopardy").then(res => {
+     axios.get("https://10.101.0.2:5001/jeopardy").then(res => {
       const data = res.data;
       this.setState(data);
     });

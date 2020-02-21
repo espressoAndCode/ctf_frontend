@@ -32,7 +32,7 @@ class JeopardyChallengeBar extends Component {
 
   postAnswer() {
     axios
-      .post("http://127.0.0.1:5000/jeopardy", {
+      .post("https://10.101.0.2:5001/jeopardy", {
         team: this.state.update.team,
         answer: this.state.update.answer,
         id: this.state.update.challengeId
